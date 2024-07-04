@@ -28,19 +28,27 @@
     ?>
 
     <h3>htmlspecialchars()</h3>
-    <p>Fungsi htmlspecialchars() mengonversi beberapa karakter standar ke entitas HTML. <br>
+    <p>Fungsi htmlspecialchars() dalam PHP digunakan untuk mengkonversi karakter-karakter khusus HTML menjadi entitas HTML. Hal ini diperlukan untuk mencegah serangan injeksi skrip lintas situs (cross-site scripting, XSS) dengan mengubah karakter-karakter tersebut menjadi bentuk yang tidak dieksekusi secara langsung oleh browser.
 
-        Karakter yang telah ditentukan sebelumnya adalah: <br>
-    <ul>
-        <li>& (ampersand) menjadi &</li>
-        <li>" (tanda kutip ganda) menjadi "</li>
-        <li>' (kutipan tunggal) menjadi &#039;</li>
-        <li>&lt; (kurang dari) menjadi &gt;</li>
-    </ul>
-    <b>Contoh:</b>
+        Berikut adalah beberapa poin penting tentang htmlspecialchars():
+
+        Tujuan Utama: Mencegah serangan XSS dengan mengubah karakter-karakter khusus seperti <,>, &, ", dan ' menjadi entitas HTML yang aman. Misalnya, < akan diubah menjadi &lt; dan> menjadi &gt;.
+
+                Penggunaan Umum: Biasanya digunakan saat menampilkan data dari pengguna, seperti input formulir atau data dari database, yang mungkin mengandung karakter khusus yang perlu dihindari dalam konteks HTML. <br>
+
+                Karakter yang telah ditentukan sebelumnya adalah: <br>
+                <ul>
+                    <li>& (ampersand) menjadi &</li>
+                    <li>" (tanda kutip ganda) menjadi "</li>
+                    <li>' (kutipan tunggal) menjadi &#039;</li>
+                    <li>&lt; (kurang dari) menjadi &gt;</li>
+                </ul>
+                <b>Contoh:</b>
     </p>
     <?php
-    $myStr = "This is some <b>bold</b> text."
+    $input = '<script>alert("Hello XSS!");</script>';
+    $safe_output = htmlspecialchars($input);
+    echo $safe_output;
     ?>
 
 </body>
