@@ -26,17 +26,21 @@ foreach ($my_num as $i) {
             line-height: 10px;
             float: left;
         }
+
+        .clear {
+            clear: both;
+        }
     </style>
 </head>
 
 <body>
-    <div class="my-box">
-        <?php foreach ($my_num as $i) : ?>
-            <div class="box">
-                <h1><?php echo $i ?></h1>
-            </div>
-        <?php endforeach ?>
-    </div>
+    <?php foreach ($my_num as $i) : ?>
+        <div class="box">
+            <h1><?php echo $i ?></h1>
+        </div>
+    <?php endforeach ?>
+
+    <div class="clear"></div>
     <?php for ($j = 0; $j < sizeof($my_num); $j++) : ?>
         <div class="box">
             <h1><?php echo $my_num[$j] - 9   ?></h1>
