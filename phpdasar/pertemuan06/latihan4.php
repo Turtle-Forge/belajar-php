@@ -32,24 +32,44 @@
     ?>
 
     <h1>Daftar Mahasiswa</h1>
-    <ul>
-        <li><?= $students[0]["nama"] ?></li>
-        <li><?= $students[0]["nim"] ?></li>
-        <li><?= $students[0]["prodi"] ?></li>
-        <li><?= $students[0]["akt"] ?></li>
+    <?php foreach ($students as $i) : ?>
+        <ul>
+            <li><?= $i["nama"] ?></li>
+            <li><?= $i["nim"] ?></li>
+            <li><?= $i["prodi"] ?></li>
+            <li><?= $i["akt"] ?></li>
+        </ul>
+    <?php endforeach; ?>
+    <!-- <ul>
+        <li><? //= $students[0]["nama"] 
+            ?></li>
+        <li><? //= $students[0]["nim"] 
+            ?></li>
+        <li><? //= $students[0]["prodi"] 
+            ?></li>
+        <li><? //= $students[0]["akt"] 
+            ?></li>
     </ul>
     <ul>
-        <li><?= $students[1]["nama"] ?></li>
-        <li><?= $students[1]["nim"] ?></li>
-        <li><?= $students[1]["prodi"] ?></li>
-        <li><?= $students[1]["akt"] ?></li>
+        <li><? //= $students[1]["nama"] 
+            ?></li>
+        <li><? //= $students[1]["nim"] 
+            ?></li>
+        <li><? //= $students[1]["prodi"] 
+            ?></li>
+        <li><? //= $students[1]["akt"] 
+            ?></li>
     </ul>
     <ul>
-        <li><?= $students[2]["nama"] ?></li>
-        <li><?= $students[2]["nim"] ?></li>
-        <li><?= $students[2]["prodi"] ?></li>
-        <li><?= $students[2]["akt"] ?></li>
-    </ul>
+        <li><? //= $students[2]["nama"] 
+            ?></li>
+        <li><? //= $students[2]["nim"] 
+            ?></li>
+        <li><? //= $students[2]["prodi"] 
+            ?></li>
+        <li><? //= $students[2]["akt"] 
+            ?></li>
+    </ul> -->
 </body>
 
 </html>
