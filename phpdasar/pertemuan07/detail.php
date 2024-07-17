@@ -1,3 +1,17 @@
+<?php
+if (
+    !isset($_GET["title"]) ||
+    !isset($_GET["author"]) ||
+    !isset($_GET["tt"]) ||
+    !isset($_GET["cover"])
+) {
+    // redirect
+    header("Location: latihan2.php");
+    exit;
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,14 +22,7 @@
 </head>
 
 <body>
-    <?php
-    // if (!isset($_GET["nama"])) {
-    //     // redirect
-    //     header("Location: latihan2.php");
-    //     exit;
-    // }
 
-    ?>
     <img src="img/<?= $_GET["cover"] ?>" alt="img">
     <ul>
         <li><?= $_GET["title"] ?></li>
