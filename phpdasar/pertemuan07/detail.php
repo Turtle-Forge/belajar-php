@@ -8,6 +8,14 @@
 </head>
 
 <body>
+    <?php
+    // if (!isset($_GET["nama"])) {
+    //     // redirect
+    //     header("Location: latihan2.php");
+    //     exit;
+    // }
+
+    ?>
     <img src="img/<?= $_GET["cover"] ?>" alt="img">
     <ul>
         <li><?= $_GET["title"] ?></li>
