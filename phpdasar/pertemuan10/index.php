@@ -1,6 +1,6 @@
 <?php
 require 'functions.php';
-$tampilbuku = query("SELECT * FROM book");
+$tampilbuku = tampil("SELECT * FROM book");
 
 ?>
 
@@ -15,6 +15,8 @@ $tampilbuku = query("SELECT * FROM book");
 
 <body>
     <h1>Daftar Buku</h1>
+    <a href="tambah.php">Tambah data</a>
+    <br><br>
     <table border="1" cellspacing="0" cellpadding="10">
         <tr>
             <th>No.</th>
