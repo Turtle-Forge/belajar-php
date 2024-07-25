@@ -21,10 +21,10 @@ function tampil($query)
 function tambah($data)
 {
     // ambil data dari setiap kolom dalam form
-    $title = $data["title"];
-    $author = $data["author"];
-    $tahunterbit = $data["tahunterbit"];
-    $cover = $data['cover'];
+    $title = htmlspecialchars($data["title"]);
+    $author = htmlspecialchars($data["author"]);
+    $tahunterbit = htmlspecialchars($data["tahunterbit"]);
+    $cover = htmlspecialchars($data["cover"]);
 
     // query insert data
     $query = "INSERT INTO book VALUES
@@ -33,5 +33,12 @@ function tambah($data)
     global $koneksi;
     mysqli_query($koneksi, $query);
 
+    return mysqli_affected_rows($koneksi);
+}
+
+function hapus($id)
+{
+    global $koneksi;
+    mysqli_query($koneksi, "DELETE FROM book WHERE id = $id");
     return mysqli_affected_rows($koneksi);
 }

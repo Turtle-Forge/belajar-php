@@ -40,19 +40,19 @@ if (isset($_POST["tambah"])) {
         <ul>
             <li>
                 <label for="title">Title : </label>
-                <input type="text" name="title" id="title" placeholder="Masukkan judul buku">
+                <input type="text" name="title" id="title" placeholder="Masukkan judul buku" required>
             </li>
             <li>
                 <label for="author">Author : </label>
-                <input type="text" name="author" id="author" placeholder="Masukkan nama penullis">
+                <input type="text" name="author" id="author" placeholder="Masukkan nama penullis" required>
             </li>
             <li>
                 <label for="tahunterbit">Tahun terbit : </label>
-                <input type="text" name="tahunterbit" id="tahunterbit" placeholder="yyyy">
+                <input type="text" name="tahunterbit" id="tahunterbit" placeholder="yyyy" required>
             </li>
             <li>
                 <label for="cover">Cover</label>
-                <input type="text" name="cover" id="cover">
+                <input type="text" name="cover" id="cover" required>
             </li>
         </ul>
         <button type="submit" name="tambah">Tambah</button>
