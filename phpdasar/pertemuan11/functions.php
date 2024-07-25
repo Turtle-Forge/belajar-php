@@ -1,5 +1,6 @@
 <?php
-// koneksikan ke database
+
+// koneksi ke database
 $hostname = "localhost";
 $username = "root";
 $password = "";
@@ -7,8 +8,8 @@ $dbname = "books";
 
 $koneksi = mysqli_connect($hostname, $username, $password, $dbname);
 
-// fungsi untuk menampilkan data
-function tampildata($query)
+// tampil data
+function tampil($query)
 {
     global $koneksi;
     $result = mysqli_query($koneksi, $query);

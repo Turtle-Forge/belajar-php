@@ -1,8 +1,11 @@
 <?php
 require "functions.php";
-$data = tampildata("SELECT * FROM book");
+
+$data = tampil("SELECT * FROM book");
 
 ?>
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -14,15 +17,18 @@ $data = tampildata("SELECT * FROM book");
 </head>
 
 <body>
-    <h1>Data Buku</h1>
+    <h1>Daftar Buku</h1>
     <a href="tambah.php">Tambah data</a>
-    <br><br>
-    <table border="1" cellpadding="10px" cellspacing="0">
+    <br>
+    <br>
+
+
+    <table border="1" cellpadding="10" cellspacing="0">
         <tr>
             <th>No.</th>
             <th>Title</th>
             <th>Author</th>
-            <th>Tahun Terbit</th>
+            <th>Tahun terbit</th>
             <th>Cover</th>
             <th>Aksi</th>
         </tr>
@@ -38,8 +44,8 @@ $data = tampildata("SELECT * FROM book");
                     <img src="img/<?= $book["cover"] ?>" alt="img" height="75px">
                 </td>
                 <td>
-                    <a href="">Ubah | </a>
-                    <a href="">Hapus</a>
+                    <a href="">ubah | </a>
+                    <a href="">hapus</a>
                 </td>
             </tr>
             <?php $id++ ?>
