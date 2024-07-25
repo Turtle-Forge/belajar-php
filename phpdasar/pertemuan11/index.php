@@ -1,10 +1,10 @@
 <?php
 require "functions.php";
 
+// menampilkan data
 $data = tampil("SELECT * FROM book");
 
 ?>
-
 
 
 <!DOCTYPE html>
@@ -45,7 +45,7 @@ $data = tampil("SELECT * FROM book");
                 </td>
                 <td>
                     <a href="">ubah | </a>
-                    <a href="">hapus</a>
+                    <a href="hapus.php?id=<?= $book["id"] ?>" onclick="return confirm('Yakin ingin menghapus data?')">hapus</a>
                 </td>
             </tr>
             <?php $id++ ?>
