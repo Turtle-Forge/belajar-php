@@ -44,7 +44,7 @@ $data = tampil("SELECT * FROM book");
                     <img src="img/<?= $book["cover"] ?>" alt="img" height="75px">
                 </td>
                 <td>
-                    <a href="">ubah | </a>
+                    <a href="ubah.php?id=<?= $book["id"] ?>">ubah | </a>
                     <a href="hapus.php?id=<?= $book["id"] ?>" onclick="return confirm('Yakin ingin menghapus data?')">hapus</a>
                 </td>
             </tr>
