@@ -9,7 +9,7 @@ $dbname = "books";
 $koneksi = mysqli_connect($hostname, $username, $password, $dbname);
 
 // tampil data
-function tampil($query)
+function query($query)
 {
     global $koneksi;
     $result = mysqli_query($koneksi, $query);
@@ -46,5 +46,34 @@ function hapus($id)
 {
     global $koneksi;
     mysqli_query($koneksi, "DELETE FROM book WHERE id = $id");
+    return mysqli_affected_rows($koneksi);
+}
+
+// Ubah data
+function ubah($data)
+{
+    // ambil data dari setiap kolom dalam form
+    $id = $data["id"];
+    $title = htmlspecialchars($data["title"]);
+    $author = htmlspecialchars($data["author"]);
+    $tahunterbit = htmlspecialchars($data["tahunterbit"]);
+    $cover = htmlspecialchars($data["cover"]);
+
+
+
+    // query sql ubah/update data
+    $query = "UPDATE book SET 
+                title='$title', 
+                author='$author', 
+                tahunTerbitt='$tahunterbit', 
+                cover='$cover'
+            WHERE id=$id";
+
+    // eksekusi query
+    global $koneksi;
+    mysqli_query($koneksi, $query);
+    echo mysqli_error($koneksi);
+
+    // mengembalikan jumlah/status perubahan pada database
     return mysqli_affected_rows($koneksi);
 }

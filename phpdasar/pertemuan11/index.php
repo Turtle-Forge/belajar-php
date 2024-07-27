@@ -2,7 +2,7 @@
 require "functions.php";
 
 // menampilkan data
-$data = tampil("SELECT * FROM book");
+$tampildata = query("SELECT * FROM book");
 
 ?>
 
@@ -34,7 +34,7 @@ $data = tampil("SELECT * FROM book");
         </tr>
 
         <?php $id = 1; ?>
-        <?php foreach ($data as $book) : ?>
+        <?php foreach ($tampildata as $book) : ?>
             <tr>
                 <td><?= $id ?></td>
                 <td><?= $book["title"] ?></td>
