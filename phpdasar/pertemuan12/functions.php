@@ -71,3 +71,17 @@ function ubah($data)
 
     return mysqli_affected_rows($koneksi);
 }
+
+
+// cari 
+function cari($keyword)
+{
+    // query pencarian
+    $query = "SELECT * FROM book WHERE 
+                title LIKE '%$keyword%' OR
+                author LIKE '%$keyword%' OR
+                tahunTerbitt LIKE '%$keyword%'
+    
+            ";
+    return query($query);
+}

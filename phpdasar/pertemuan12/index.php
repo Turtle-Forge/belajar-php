@@ -3,6 +3,15 @@ require "functions.php";
 
 $books = query("SELECT * FROM book");
 
+// ketika tombol cari diklik
+if (isset($_POST["cari"])) {
+    $books = cari($_POST["keyword"]);
+} else if (isset($_POST["reset"])) {
+    header("Location: index.php");
+    exit;
+}
+
+
 ?>
 
 <!DOCTYPE html>
@@ -18,9 +27,14 @@ $books = query("SELECT * FROM book");
     <h1>Daftar Buku </h1>
     <a href="tambah.php">Tambah data</a>
     <br><br>
-    <input type="text" name="keyword" placeholder="Masukkan kata kunci...">
-    <button name="cari" type="submit">Cari</button>
+    <form action="" method="post">
+        <input type="text" name="keyword" placeholder="Masukkan kata kunci..." autofocus>
+        <button name="cari" type="submit">Cari</button>
+        <button name="reset" type="submit">Reset</button>
+    </form>
     <br><br>
+
+
     <table border="1" cellpadding="10" cellspacing="0">
         <tr>
             <th>No.</th>
