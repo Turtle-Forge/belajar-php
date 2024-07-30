@@ -41,8 +41,9 @@ if (isset($_POST["ubah"])) {
     <a href="index.php">Kembali</a>
     <br><br>
 
-    <form action="" method="post">
+    <form action="" method="post" enctype="multipart/form-data">
         <input type="hidden" name="id" value="<?= $data['id'] ?>">
+        <input type="hidden" name="namaGambarLama" value="<?= $data['cover'] ?>">
         <ul>
             <li>
                 <label for="title">Title : </label>
@@ -60,8 +61,9 @@ if (isset($_POST["ubah"])) {
             </li>
             <br>
             <li>
-                <label for="cover">Cover : </label>
-                <input type="text" name="cover" id="cover" placeholder=".jpg/.jpeg/.png" value="<?= $data['cover'] ?>" required>
+                <label for="cover">Cover : </label><br>
+                <img src="img/<?= $data['cover'] ?>" alt="img" width="80px"><br>
+                <input type="file" name="cover" id="cover" placeholder=".jpg/.jpeg/.png">
             </li>
             <br>
         </ul>

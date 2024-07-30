@@ -5,6 +5,10 @@ require "functions.php";
 // ketika tombol tambah diklik
 if (isset($_POST["tambah"])) {
 
+    // var_dump($_POST);
+    // var_dump($_FILES);
+    // die;
+
     // cek apakah data berhasil ditambahkan
     if (tambah($_POST) > 0) {
         echo "<script>
@@ -41,7 +45,7 @@ if (isset($_POST["tambah"])) {
     <a href="index.php">Kembali</a>
     <br><br>
 
-    <form action="" method="post">
+    <form action="" method="post" enctype="multipart/form-data">
         <ul>
             <li>
                 <label for="title">Title : </label>
@@ -60,7 +64,7 @@ if (isset($_POST["tambah"])) {
             <br>
             <li>
                 <label for="cover">Cover : </label>
-                <input type="text" name="cover" id="cover" placeholder=".jpg/.jpeg/.png" required>
+                <input type="file" name="cover" id="cover" placeholder=".jpg/.jpeg/.png">
             </li>
             <br>
         </ul>
