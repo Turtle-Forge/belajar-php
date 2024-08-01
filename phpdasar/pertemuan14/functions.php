@@ -140,3 +140,41 @@ function upload()
 
     return $namaFileBaru;
 }
+
+
+// pendaftaran user
+function daftar($data)
+{
+    global $koneksi;
+
+    $username = htmlspecialchars(strtolower(stripslashes($data["username"])));
+    $email = htmlspecialchars(strtolower(stripslashes($data["email"])));
+    $password = htmlspecialchars(strtolower(mysqli_real_escape_string($koneksi, $data["password"])));
+    $password2 = htmlspecialchars(strtolower(mysqli_real_escape_string($koneksi, $data["password2"])));  // konfirmasi password
+
+    // cek apakah username sudah ada di database atau belum
+    $result = mysqli_query($koneksi, "SELECT username FROM users WHERE username = '$username' ");
+
+    if (mysqli_fetch_assoc($result)) { // kalu username sudah ada maka akan menghasilkan true
+        echo "<script>alert('GAGAL! Username sudadh terdaftar')</script>";
+        return false;
+    }
+
+    // cek konfirmasi password sama
+    if ($password !== $password2) {
+        echo "<script>alert('Konfirmasi password salah');</script>";
+        return false;
+    }
+
+    // enkripsi password
+    $password = password_hash($password, PASSWORD_DEFAULT);
+    // echo var_dump($password); //cek hasil hashing dari function password_hash
+
+    // $password = md5($password);
+    // echo var_dump($password); //cek hasil hashing dari function md5 (note: jangan lagi gunakan md5 hash karena sudah mudah diketahui/tdk aman)
+
+    // tambahkan user baru kedalam database
+    mysqli_query($koneksi, "INSERT INTO users VALUES('', '$username', '$email', '$password')");
+
+    return mysqli_affected_rows($koneksi); // akan menghasilkan nilai -1 jika gagal dan 1 jika berhasil
+}
