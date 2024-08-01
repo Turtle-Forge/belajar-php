@@ -48,9 +48,8 @@ if (isset($_POST["ubah"])) {
     <a href="index.php">Kembali</a>
     <br><br>
     <form action="" method="post">
+        <input type="hidden" name="id" value="<?= $book["id"] ?>">
         <ul>
-            <input type="hidden" name="id" value="<?= $book["id"] ?>">
-
             <li>
                 <label for="title">Title : </label>
                 <input type="text" name="title" id="title" placeholder="Masukkan judul buku" value="<?= $book["title"] ?>" required>
