@@ -1,5 +1,14 @@
 <?php
 
+// jalankan session
+session_start();
+
+// cek apakah ada session
+if (!isset($_SESSION["login"])) {
+    header("Location: login.php");
+    exit;
+}
+
 // hubungkan file
 require "functions.php";
 

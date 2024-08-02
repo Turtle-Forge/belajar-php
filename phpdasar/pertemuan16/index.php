@@ -1,4 +1,14 @@
 <?php
+// jalankan session
+session_start();
+
+// cek apakah ada session
+if (!isset($_SESSION["login"])) {
+    header("Location: login.php");
+    exit;
+}
+
+
 require "functions.php";
 
 $books = query("SELECT * FROM book");
@@ -24,6 +34,7 @@ if (isset($_POST["cari"])) {
 </head>
 
 <body>
+    <a href="logout.php">Logout</a>
     <h1>Daftar Buku </h1>
     <a href="tambah.php">Tambah data</a>
     <br><br>

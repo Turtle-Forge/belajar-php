@@ -1,4 +1,12 @@
 <?php
+// jalankan session
+session_start();
+
+// cek apakah ada session
+if (isset($_SESSION["login"])) {
+    header("Location: index.php");
+    exit;
+}
 
 require "functions.php";
 
@@ -17,6 +25,10 @@ if (isset($_POST["login"])) {
         // cek password nya
         $row = mysqli_fetch_assoc($result);
         if (password_verify($password, $row["password"])) { // kebalikan dari password_hash() : mengecek password yg dimasukkan user dgn password di database berdaskan username trsbut
+
+
+            // set session
+            $_SESSION["login"] = true;
             header("Location: index.php");
             exit; // agar skrip dibawah ini tdk dieksekusi
         }
