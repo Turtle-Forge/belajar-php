@@ -1,25 +1,25 @@
-// console.log("ok");
+// memanggil jquery
+// ada dua cara
+// $(document); // simbol $ artinya kita sedang memanggil jquery sama aja dgn jQuery(document). cara baca $(document) adalah "jquery tolong carikan saya `document` atau apapun itu yang dituliskan di dalam kurungnya"
+// jQuery(document);
 
-// ambil elemen2 yang dibutuhkan
-var keyword = document.getElementById("keyword");
-var tombolCari = document.getElementById("tombol-cari");
-var container = document.getElementById("container");
+$(document).ready(function () {
+  // artinya jika jquery akan mencari `document` dan kalau document nya udh siap maka jalankan function berikut ini
 
-// untuk menjalankan ajax, kita butuuh triger
-// tambahkan event ketika keyword ditulis
-keyword.addEventListener("keyup", function () {
-  // buat objek ajax
-  var ajax = new XMLHttpRequest();
+  // hilangkan tombol cari
+  // $("#tombol-cari").hide();
 
-  //   cek kesiapan ajax
-  ajax.onreadystatechange = function () {
-    if (ajax.readyState == 4 && ajax.status == 200) {
-      // status 200 artinya OK dan 4 artinya ready
-      //   console.log(ajax.responseText);
-      container.innerHTML = ajax.responseText;
-    }
-  };
-  //   eksekusi ajax
-  ajax.open("GET", "ajax/book.php?keyword=" + keyword.value, true);
-  ajax.send();
+  // event ketika keyword ditulis
+  $("#keyword").on("keyup", function () {
+    $(".loader").show();
+
+    // ajax menggunakan load
+    // $("#container").load("ajax/book.php?=" + $("#keyword").val());
+
+    //menggunakan get
+    $.get("ajax/book.php?keyword=" + $("#keyword").val(), function (data) {
+      $("#container").html(data);
+      $(".loader").hide();
+    });
+  });
 });

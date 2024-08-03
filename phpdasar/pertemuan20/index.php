@@ -31,6 +31,16 @@ if (isset($_POST["cari"])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Upload File</title>
+
+    <style>
+        .loader {
+            width: 40px;
+            position: absolute;
+            top: 130px;
+            left: 240px;
+            display: none;
+        }
+    </style>
 </head>
 
 <body>
@@ -41,7 +51,8 @@ if (isset($_POST["cari"])) {
     <form action="" method="post">
         <input type="text" name="keyword" placeholder="Masukkan kata kunci..." autofocus id="keyword">
         <button name="cari" type="submit" id="tombol-cari">Cari</button>
-        <button name="reset" type="submit">Reset</button>
+        <!-- <button name="reset" type="submit">Reset</button> -->
+        <img src="img/loader.gif" class="loader">
     </form>
     <br><br>
 
@@ -78,6 +89,8 @@ if (isset($_POST["cari"])) {
         </table>
     </div>
 
+    <!-- hubungkan jquery -->
+    <script src="js/jquery-3.7.1.min.js"></script>
 
     <!-- JS -->
     <script src="js/script.js"></script>
