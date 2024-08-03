@@ -22,7 +22,7 @@ $html = '<!DOCTYPE html>
                 <th>No.</th>
                 <th>Title</th>
                 <th>Author</th>
-                <th>Tahun terbit</th>
+                <th>Tahun Terbit</th>
                 <th>Cover</th>
             </tr>';
 
