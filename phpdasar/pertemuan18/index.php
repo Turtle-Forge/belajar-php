@@ -1,6 +1,7 @@
 <?php
 // jalankan session
 session_start();
+require "functions.php";
 
 // cek apakah ada session
 if (!isset($_SESSION["login"])) {
@@ -9,9 +10,17 @@ if (!isset($_SESSION["login"])) {
 }
 
 
-require "functions.php";
+// pagination
+// konfigurasi
+$jumlahDataPerHalaman = 3;
+$jumlahData = count(query("SELECT * FROM book"));
+$jumlahHalaman = ceil($jumlahData / $jumlahDataPerHalaman);
+$halamanAktif = (isset($_GET["halaman"])) ? $_GET["halaman"] : 1;
+$dataAwal = ($jumlahDataPerHalaman * $halamanAktif) - $jumlahDataPerHalaman;
 
-$books = query("SELECT * FROM book");
+
+
+$books = query("SELECT * FROM book LIMIT $dataAwal, $jumlahDataPerHalaman"); // keyword limit untuk membatasi data yang mau ditampilkan (LIMIT index, bnyak_data)
 
 // ketika tombol cari diklik
 if (isset($_POST["cari"])) {
@@ -59,7 +68,7 @@ if (isset($_POST["cari"])) {
         <?php $id = 1; ?>
         <?php foreach ($books as $book) : ?>
             <tr>
-                <td><?= $id ?></td>
+                <td><?= $id + $dataAwal ?></td>
                 <td><?= $book["title"] ?></td>
                 <td><?= $book["author"] ?></td>
                 <td><?= $book["tahunTerbitt"] ?></td>
@@ -73,8 +82,23 @@ if (isset($_POST["cari"])) {
             </tr>
             <?php $id++ ?>
         <?php endforeach; ?>
-
     </table>
+    <br>
+
+    <!-- link navigasi pagination -->
+    <?php if ($halamanAktif > 1) : ?>
+        <a href="?halaman=<?= $halamanAktif - 1 ?>">&lt;</a>
+    <?php endif; ?>
+    <?php for ($i = 1; $i <= $jumlahHalaman; $i++) : ?>
+        <?php if ($i == $halamanAktif) : ?>
+            <a href="?halaman=<?= $i ?>" style="font-weight: bold; color: red;"><?= $i ?></a>
+        <?php else : ?>
+            <a href="?halaman=<?= $i ?>"><?= $i ?></a>
+        <?php endif; ?>
+    <?php endfor; ?>
+    <?php if ($halamanAktif < $jumlahHalaman) : ?>
+        <a href="?halaman=<?= $halamanAktif + 1 ?>">&gt;</a>
+    <?php endif; ?>
 </body>
 
 </html>
