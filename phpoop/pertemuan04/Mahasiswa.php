@@ -62,7 +62,6 @@ class CetakInfo
     }
 }
 
-
 echo "<br>";
 echo "<br>";
 
