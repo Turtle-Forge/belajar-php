@@ -87,3 +87,11 @@ echo "<br>";
 
 echo $mhs1->cetakInfo();
 echo $mhsBaru->cetakInfo();
+
+
+
+
+// Penjelasan:
+// Overriding sayHello: Kelas MahasiswaBaru menimpa metode sayHello dari kelas Mahasiswa untuk memberikan pesan yang berbeda.
+
+// Overriding cetakInfo: Metode cetakInfo di kelas MahasiswaBaru juga diubah untuk menambahkan informasi pendaftaran. Namun, metode ini juga memanggil parent::cetakInfo() untuk mempertahankan bagian dari fungsionalitas asli dari kelas Mahasiswa.
