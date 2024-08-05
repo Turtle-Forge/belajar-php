@@ -38,12 +38,52 @@ class Mahasiswa
     // setter dan getter
     public function setNama($nama)
     {
-        return $this->nama = $nama;
+        $this->nama = $nama;
     }
 
     public function getNama()
     {
         return $this->nama;
+    }
+
+    public function setNim($nim)
+    {
+        $this->nim = $nim;
+    }
+
+    public function getNim()
+    {
+        return $this->nim;
+    }
+
+    public function setProdi($prodi)
+    {
+        $this->prodi = $prodi;
+    }
+
+    public function getProdi()
+    {
+        return $this->prodi;
+    }
+
+    public function setAngkatan($angkatan)
+    {
+        $this->angkatan = $angkatan;
+    }
+
+    public function getAngkatan()
+    {
+        return $this->angkatan;
+    }
+
+    public function setIp($ip)
+    {
+        $this->ip = $ip;
+    }
+
+    public function getIp()
+    {
+        return $this->ip;
     }
 }
 
@@ -65,13 +105,13 @@ class MahasiswaBaru extends Mahasiswa
     // Menambahkan metode baru khusus untuk MahasiswaBaru
     public function getInfoPendaftaran()
     {
-        return "Mahasiswa baru dengan nama {$this->nama} terdaftar pada tanggal {$this->pendaftaran}<br><br>";
+        return "Mahasiswa baru dengan nama {$this->getNama()} terdaftar pada tanggal {$this->pendaftaran}<br><br>";
     }
 
     // overriding method sayHello darii kelas induk Mahasiswa
     public function sayHello()
     {
-        return "Halo, nama saya {$this->nama}, Mahasiswa baru yang terdaftar pada tanggal {$this->pendaftaran} <br><br>";
+        return "Halo, nama saya {$this->getNama()}, Mahasiswa baru yang terdaftar pada tanggal {$this->pendaftaran} <br><br>";
     }
 
     // overriding method cetakInfo
@@ -79,6 +119,17 @@ class MahasiswaBaru extends Mahasiswa
     {
         // Menggunakan parent:: untuk tetap menampilkan sebagian info dari kelas induk
         return parent::cetakInfo() . "Pendaftaran: {$this->pendaftaran} <br><br>";
+    }
+
+
+    public function setPendaftaran($pendaftaran)
+    {
+        $this->pendaftaran = $pendaftaran;
+    }
+
+    public function getPendaftaran()
+    {
+        return $this->pendaftaran;
     }
 }
 
