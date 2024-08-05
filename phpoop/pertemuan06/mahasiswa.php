@@ -26,49 +26,18 @@ class Mahasiswa
     // method 
     public function sayHello()
     {
-        return "Hello " . $this->nama;
+        return "Hello " . $this->nama . "<br><br>";
     }
-}
 
-
-$mhs1 = new Mahasiswa("Benony Gabriel", "105222002", "Ilmu Komputer", 2022, 3.59);
-$mhs2 = new Mahasiswa("Muhammad Fatah", null, "Ekonomi", 2023, null);
-
-// menampilkan mahasiswa
-echo "Nama: " . $mhs1->nama . "<br>";
-echo "NIM: " . $mhs1->nim . "<br>";
-echo "Prodi: " . $mhs1->prodi . "<br>";
-echo "Angkatan: " . $mhs1->angkatan . "<br>";
-echo "IP: " . $mhs1->ip . "<br>";
-
-echo "<br>";
-var_dump($mhs1);
-
-echo "<br>";
-echo "<br>";
-
-// Membuat kelas cetak info
-class CetakInfo
-{
-
-    // membuat objek type
-    public function cetak(Mahasiswa $mhs)
+    public function cetakInfo()
     {
-        return "Nama : {$mhs->nama} <br> 
-                NIM : {$mhs->nim} <br>
-                Prodi : {$mhs->prodi} <br>
-                Akt : {$mhs->angkatan} <br>
-                IP : {$mhs->ip} <br>";
+        return "Nama : {$this->nama} <br> 
+                NIM : {$this->nim} <br>
+                Prodi : {$this->prodi} <br>
+                Angkatan : {$this->angkatan} <br>
+                IP : {$this->ip} <br><br>";
     }
 }
-
-echo "<br>";
-echo "<br>";
-
-// menampilkan data mahasiswa
-$cetakMhs = new CetakInfo();
-echo $cetakMhs->cetak($mhs1);
-
 
 
 // membuat kelas MahasiswaBaru yang mewarisi kelas Mahasiswa
@@ -88,29 +57,33 @@ class MahasiswaBaru extends Mahasiswa
     // Menambahkan metode baru khusus untuk MahasiswaBaru
     public function getInfoPendaftaran()
     {
-        return "Mahasiswa baru dengan nama {$this->nama} terdaftar pada tanggal {$this->pendaftaran}";
+        return "Mahasiswa baru dengan nama {$this->nama} terdaftar pada tanggal {$this->pendaftaran}<br><br>";
+    }
+
+    // overriding method sayHello darii kelas induk Mahasiswa
+    public function sayHello()
+    {
+        return "Halo, nama saya {$this->nama}, Mahasiswa baru yang terdaftar pada tanggal {$this->pendaftaran} <br><br>";
+    }
+
+    // overriding method cetakInfo
+    public function cetakInfo()
+    {
+        // Menggunakan parent:: untuk tetap menampilkan sebagian info dari kelas induk
+        return parent::cetakInfo() . "Pendaftaran: {$this->pendaftaran} <br><br>";
     }
 }
 
 
+$mhs1 = new Mahasiswa("Benony Gabriel", "105222002", "Ilmu Komputer", 2022, 3.59);
+
 // Membuat objek dari kelas Mahasiswabaru
 $mhsBaru = new MahasiswaBaru("Joko Susilo", "105222003", "Teknik Sipil", 2023, 3.75, "12 Juli 2023");
 
-// Menampilkan data mahasiswa baru
-echo "
-        Nama : {$mhsBaru->nama} <br>
-        NIM : {$mhsBaru->nim} <br>
-        Prodi : {$mhsBaru->prodi} <br>
-        Angkatan : {$mhsBaru->angkatan} <br>
-        IP : {$mhsBaru->ip} <br>
-        Pendaftaran : {$mhsBaru->pendaftaran} <br>
-";
+echo $mhs1->sayHello();
+echo $mhsBaru->sayHello();
 
-echo "<br><br>";
-echo $mhsBaru->getInfoPendaftaran();
+echo "<br>";
 
-
-
-// menampilkan data mahasiswa
-$cetakMhs = new CetakInfo();
-echo $cetakMhs->cetak($mhsBaru);
+echo $mhs1->cetakInfo();
+echo $mhsBaru->cetakInfo();
