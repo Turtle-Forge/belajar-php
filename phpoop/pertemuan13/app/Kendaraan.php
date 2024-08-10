@@ -1,5 +1,7 @@
 <?php
 
+namespace Pertemuan13\App;
+
 abstract class Kendaraan
 {
     protected $merk;

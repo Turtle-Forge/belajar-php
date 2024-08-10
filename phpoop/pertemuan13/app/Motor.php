@@ -1,5 +1,7 @@
 <?php
 
+namespace Pertemuan13\App;
+
 // Kelas konkret Motor yang juga mengimplementasikan metode dari kelas abstrak Kendaraan
 class Motor extends Kendaraan
 {

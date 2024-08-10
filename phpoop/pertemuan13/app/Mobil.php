@@ -1,5 +1,7 @@
 <?php
 
+namespace Pertemuan13\App;
+
 // Kelas konkret Mobil yang mengimplementasikan metode dari kelas abstrak Kendaraan
 class Mobil extends Kendaraan
 {
