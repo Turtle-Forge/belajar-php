@@ -2,5 +2,5 @@
 
 todo: <br>
 ✅ PHP Dasar <br>
-🔳 PHP OOP <br>
+✅ PHP OOP <br>
 🔳 MVC <br>
