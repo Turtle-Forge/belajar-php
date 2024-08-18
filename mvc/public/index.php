@@ -6,4 +6,4 @@ $app = new App();
 
 echo "<br>";
 
-$cont = new Controller();
+// $cont = new Controller();
