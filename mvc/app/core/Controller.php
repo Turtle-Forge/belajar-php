@@ -2,8 +2,8 @@
 
 class Controller
 {
-    public function __construct()
+    public function view($view, $data = [])
     {
-        echo "Class " . __CLASS__ . " siap!";
+        require_once "../app/views/" . $view . ".php";
     }
 }
