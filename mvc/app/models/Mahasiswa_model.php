@@ -37,6 +37,8 @@ class Mahasiswa_model
         } catch (PDOException $e) {
             die($e->getMessage());
         }
+
+        // $this->mhs;
     }
 
 
