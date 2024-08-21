@@ -5,11 +5,12 @@
 
 
             <?php foreach ($data["mhs"] as $mhs) : ?>
-                <ul>
-                    <li><?= $mhs["nama"] ?></li>
-                    <li><?= $mhs["nim"] ?></li>
-                    <li><?= $mhs["jurusan"] ?></li>
-                    <li><?= $mhs["angkatan"] ?></li>
+                <ul class="list-group">
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <?= $mhs["nama"] ?>
+                        <a class="badge badge-primary" href="<?= BASEURL ?>/mahasiswa/detail/<?= $mhs["id"] ?>">Detail</a>
+                    </li>
+
                 </ul>
             <?php endforeach; ?>
 
