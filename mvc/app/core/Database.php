@@ -76,6 +76,11 @@ class Database
         $this->execute();
         return $this->stmt->fetch(PDO::FETCH_ASSOC);
     }
+
+    public function rowCount()
+    {
+        return $this->stmt->rowCount(); // rowCount yg ini adalah milik pdo bukan fungsi yang kita buat
+    }
 }
 
 // kode diatas adalah membuat database wrapper

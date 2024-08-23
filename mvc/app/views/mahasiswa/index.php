@@ -45,16 +45,16 @@
                     </div>
                     <div class="form-group">
                         <label for="nim">NIM</label>
-                        <input type="number" class="form-control" id="nim" name="nim" placeholder="105222023" required>
+                        <input type="number" class="form-control" id="nim" name="nim" value="105222023" placeholder="105222023" required>
                     </div>
                     <div class="form-group">
-                        <label for="jurusan">Example select</label>
+                        <label for="jurusan">Jurusan</label>
                         <select class="form-control" id="jurusan" name="jurusan">
                             <option value="Ilmu Komputer">Ilmu Komputer</option>
-                            <option value="Ilmu Komputer">Teknik Logistik</option>
-                            <option value="Ilmu Komputer">Ekonomi</option>
-                            <option value="Ilmu Komputer">Manajemen</option>
-                            <option value="Ilmu Komputer">Teknik Perminyakan</option>
+                            <option value="Teknik Logistik">Teknik Logistik</option>
+                            <option value="Ekonomi">Ekonomi</option>
+                            <option value="Manajemen">Manajemen</option>
+                            <option value="Teknik Perminyakan">Teknik Perminyakan</option>
                         </select>
                     </div>
                     <div class="form-group">
@@ -64,7 +64,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Tambah Data</button>
+                <button type="submit" class="btn btn-primary">Tambah Data</button>
             </div>
             </form>
         </div>
