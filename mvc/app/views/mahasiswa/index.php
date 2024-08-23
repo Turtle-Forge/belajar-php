@@ -1,6 +1,12 @@
 <div class="container mt-5">
     <div class="row">
         <div class="col-6">
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#formModal">
+                Tambah Data
+            </button>
+            <br><br>
+
             <h3>Daftar Mahasiswa</h3>
 
 
@@ -15,6 +21,52 @@
             <?php endforeach; ?>
 
 
+        </div>
+    </div>
+</div>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="formModal" tabindex="-1" role="dialog" aria-labelledby="judulModal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="judulModal">Tambah Data Mahasiswa</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="<?= BASEURL ?>/mahasiswa/tambah" method="post">
+                    <div class="form-group">
+                        <label for="nama">Nama Mahasiswa</label>
+                        <input type="text" class="form-control" id="nama" name="nama" placeholder="Masukkan nama mahasiswa" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="nim">NIM</label>
+                        <input type="number" class="form-control" id="nim" name="nim" placeholder="105222023" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="jurusan">Example select</label>
+                        <select class="form-control" id="jurusan" name="jurusan">
+                            <option value="Ilmu Komputer">Ilmu Komputer</option>
+                            <option value="Ilmu Komputer">Teknik Logistik</option>
+                            <option value="Ilmu Komputer">Ekonomi</option>
+                            <option value="Ilmu Komputer">Manajemen</option>
+                            <option value="Ilmu Komputer">Teknik Perminyakan</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="angkatan">Angkatan </label>
+                        <input type="number" class="form-control" id="angkatan" name="angkatan" value="2020" placeholder="2020" required>
+                    </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Tambah Data</button>
+            </div>
+            </form>
         </div>
     </div>
 </div>
