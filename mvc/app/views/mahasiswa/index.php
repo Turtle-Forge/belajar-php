@@ -21,9 +21,14 @@
 
             <?php foreach ($data["mhs"] as $mhs) : ?>
                 <ul class="list-group">
-                    <li class="list-group-item d-flex justify-content-between align-items-center">
+
+                    <li class="list-group-item">
                         <?= $mhs["nama"] ?>
-                        <a class="badge badge-primary" href="<?= BASEURL ?>/mahasiswa/detail/<?= $mhs["id"] ?>">Detail</a>
+
+                        <a class="badge badge-danger float-right ml-3" href="<?= BASEURL ?>/mahasiswa/hapus/<?= $mhs["id"] ?>" onclick="return confirm('Yakin ingin menghapus?');">Hapus</a>
+
+                        <a class="badge badge-primary float-right ml-3" href="<?= BASEURL ?>/mahasiswa/detail/<?= $mhs["id"] ?>">Detail</a>
+
                     </li>
 
                 </ul>
