@@ -11,7 +11,7 @@
         <div class="col-lg-6">
 
             <!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#formModal">
+            <button type="button" class="btn btn-primary tombolTambahData" data-toggle="modal" data-target="#formModal">
                 Tambah Data
             </button>
             <br><br>
@@ -26,6 +26,8 @@
                         <?= $mhs["nama"] ?>
 
                         <a class="badge badge-danger float-right ml-3" href="<?= BASEURL ?>/mahasiswa/hapus/<?= $mhs["id"] ?>" onclick="return confirm('Yakin ingin menghapus?');">Hapus</a>
+
+                        <a class="badge badge-warning float-right ml-3 tampilModalUbah" href="<?= BASEURL ?>/mahasiswa/ubah/<?= $mhs["id"] ?>" data-toggle="modal" data-target="#formModal" data-id="<?= $mhs["id"] ?>">Ubah</a>
 
                         <a class="badge badge-primary float-right ml-3" href="<?= BASEURL ?>/mahasiswa/detail/<?= $mhs["id"] ?>">Detail</a>
 
@@ -53,6 +55,7 @@
             </div>
             <div class="modal-body">
                 <form action="<?= BASEURL ?>/mahasiswa/tambah" method="post">
+                    <input type="hidden" name="id" id="id">
                     <div class="form-group">
                         <label for="nama">Nama Mahasiswa</label>
                         <input type="text" class="form-control" id="nama" name="nama" placeholder="Masukkan nama mahasiswa" required>
